@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potomac Hills Babysitting Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #FEC84D;
+            --accent: #4ECDC4;
+            --dark: #2C3E50;
+            --light: #FFF8F3;
+            --cream: #FFEFD5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8FB9 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Credentials Banner */
+        .credentials {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: -3rem auto 3rem;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .credential-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .credential-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent) 0%, #3BB9B1 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .credential-item:hover .credential-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .credential-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .credential-item p {
+            color: #7F8C8D;
+            font-size: 0.95rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 3rem;
+            animation: fadeInSection 0.8s ease-out;
+        }
+
+        @keyframes fadeInSection {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Rates Section */
+        .rates {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--secondary);
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .rate-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .rate-item .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .rate-item .label {
+            color: #7F8C8D;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8FB9 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2::after {
+            background: white;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 3rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7F8C8D;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .credentials {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌟 Potomac Hills Babysitting Services</h1>
+        <p class="tagline">Reliable, Fun, and Safety-Certified Care for Your Children</p>
+    </header>
+
+    <div class="container">
+        <div class="credentials">
+            <div class="credential-item">
+                <div class="credential-icon">❤️</div>
+                <h3>CPR Certified</h3>
+                <p>Trained in emergency response</p>
+            </div>
+            <div class="credential-item">
+                <div class="credential-icon">☀️</div>
+                <h3>Camp Counselor</h3>
+                <p>2 summers of experience</p>
+            </div>
+            <div class="credential-item">
+                <div class="credential-icon">🎨</div>
+                <h3>Creative Activities</h3>
+                <p>Engaging & educational fun</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>About Me</h2>
+            <div class="about">
+                <p>Hi! I'm a responsible and enthusiastic teenager who genuinely loves working with children. With my CPR certification and two summers as a camp counselor, I've developed the skills and experience to provide safe, engaging care for kids of all ages.</p>
+                <p style="margin-top: 1rem;">I believe in creating a fun, nurturing environment where children can play, learn, and grow. Whether it's helping with homework, organizing creative activities, or simply keeping your little ones safe and happy, I'm committed to giving you peace of mind while you're away.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>My Qualifications</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏥 CPR & First Aid Certified</h3>
+                    <p>I'm fully certified in CPR and First Aid, so I'm prepared to handle any emergency situation. Your child's safety is my top priority, and I have the training to respond quickly and effectively if needed.</p>
+                </div>
+                <div class="service-card">
+                    <h3>⛺ Camp Counselor Experience</h3>
+                    <p>I spent two summers as a camp counselor, where I supervised groups of children, organized activities, and ensured everyone had a safe and fun experience. This taught me how to manage multiple kids, keep them engaged, and handle different personalities.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👶 Hands-On Babysitting Experience</h3>
+                    <p>I've been babysitting for neighbor kids for several months, caring for children of different ages. I've gained real-world experience with bedtime routines, meal prep, homework help, and keeping kids entertained and safe.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>What I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Safety First</h3>
+                    <ul>
+                        <li>CPR & First Aid certified</li>
+                        <li>Reliable and punctual</li>
+                        <li>Emergency-prepared</li>
+                        <li>Clear communication with parents</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Activities & Learning</h3>
+                    <ul>
+                        <li>Arts & crafts projects</li>
+                        <li>Outdoor games & activities</li>
+                        <li>Homework help</li>
+                        <li>Age-appropriate entertainment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Household Help</h3>
+                    <ul>
+                        <li>Basic meal prep</li>
+                        <li>Bedtime routines</li>
+                        <li>Light tidying up</li>
+                        <li>Pet care (if needed)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rates</h2>
+            <div class="rates">
+                <div class="rates-grid">
+                    <div class="rate-item">
+                        <div class="label">1 Child</div>
+                        <div class="price">$18/hr</div>
+                    </div>
+                    <div class="rate-item">
+                        <div class="label">2 Children</div>
+                        <div class="price">$20/hr</div>
+                    </div>
+                    <div class="rate-item">
+                        <div class="label">3+ Children</div>
+                        <div class="price">$25/hr</div>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; text-align: center; font-size: 0.95rem; color: #555;">
+                    *Evening and weekend rates may vary. Please contact me to discuss your specific needs!
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="contact">
+                <h2>Get In Touch</h2>
+                <div class="contact-info">
+                    <p style="margin-top: 1rem; font-size: 1.1rem;"><strong>School Year:</strong> Weekday nights and weekends</p>
+                    <p style="font-size: 1.1rem;"><strong>Summer:</strong> All day babysitting available</p>
+                </div>
+                <a href="#" class="contact-button">Contact Me</a>
+            </div>
+        </sec
